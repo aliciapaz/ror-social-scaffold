@@ -136,6 +136,10 @@ a {
   }
 }
 
+.flex {
+  display: flex;
+}
+
 form {
   width: 80%;
   margin: 8px 0;
@@ -309,6 +313,15 @@ form {
 
     justify-content: start;
   }
+}
+
+.user-links {
+  align-items: center;
+}
+
+.user-name,
+.profile-link {
+  padding-right: 1rem;
 }
 
 #error_explanation {
