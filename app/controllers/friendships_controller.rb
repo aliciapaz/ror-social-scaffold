@@ -8,7 +8,7 @@ class FriendshipsController < ApplicationController
     if @friendship.save
       redirect_to users_path
     else
-      render :new
+      redirect_to users_path
     end
   end
 
