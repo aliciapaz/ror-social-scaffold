@@ -12,9 +12,10 @@ class Friendship < ApplicationRecord
   end
 
   def check_uniqueness
-    a = Friendship.where(requestee_id: self[:requestee_id])
-    b = Friendship.where(requester_id: self[:requestee_id])
+    a = Friendship.where(requestee_id: self[:requestee_id], requester_id: self[:requester_id])
+    b = Friendship.where(requestee_id: self[:requester_id], requester_id: self[:requestee_id])
     errors.add(:check_uniqueness, "you already have a friendship invitation with this user") unless (a.empty? and b.empty?)
   end
   
 end
+
