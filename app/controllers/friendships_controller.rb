@@ -16,7 +16,13 @@ class FriendshipsController < ApplicationController
   end
   
   def update
-    # change status of friendship
+    @friendship = Friendship.where(requestee_id: params[:requestee_id], requester_id: params[:requester_id])
+
+    if @friendship.update(friendship_params)
+      redirect_to users_path
+    else
+      redirect_to users_path
+    end
   end
 
   def destroy

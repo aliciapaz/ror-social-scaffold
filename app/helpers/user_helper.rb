@@ -9,6 +9,14 @@ module UserHelper
       end
     end
   end
+
+  def update_friendship_button(user)
+    form_with model: @friendship, method:'patch' do |f|
+      f.hidden_field :requestee_id, value: user.id
+      f.hidden_field :requester_id, value: current_user.id
+      f.submit('Accept')
+    end
+  end
 end
 
 
