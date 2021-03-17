@@ -17,9 +17,13 @@ class Friendship < ApplicationRecord
     errors.add(:check_uniqueness, "you already have a friendship invitation with this user") unless (a.empty? and b.empty?)
   end
 
-  def self.find_friendship(user1, user2)
-      self.where(requester_id: user1[:id], requestee_id: user2[:id]).pluck(:id, :status)
+  def self.bidirectional_friendship(user1, user2)
+    self.where(requester_id: user1[:id], requestee_id: user2[:id])
+    .or(self.where(requester_id: user2[:id], requestee_id: user1[:id])).ids[0]
   end
-  
-end
 
+  def self.unidirectional_friendship(requester, requestee)
+    self.where(requester_id: requester[:id], requestee_id: requestee[:id]).ids[0]
+  end
+
+end
