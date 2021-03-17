@@ -9,13 +9,13 @@ module UserHelper
   end
 
   def update_friendship_button(user)
-    @friendship = Friendship.find_friendship(user, current_user)
-    if current_user != user and friendship_exist?(user, current_user) and !@friendship.empty? and @friendship[1] == 'pending'
+    @friendship = Friendship.where(requestee_id: current_user[:id], requester_id: user[:id]).pluck(:id, :status)
+    if current_user != user and !@friendship.empty? and @friendship[0][1] == 'pending'
       concat button_to 'Accept', update_friendship_path(current_user[:id], @friendship[0]),
-                          params: {:friendship => {:id => @friendship[0], :status => 'accepted'}},
+                          params: {:friendship => {:id => @friendship[0][0], :status => 'accepted'}},
                           method: :patch
       button_to 'Reject', update_friendship_path(current_user[:id], @friendship[0]),
-                          params: {:friendship => {:id => @friendship[0], :status => 'rejected'}},
+                          params: {:friendship => {:id => @friendship[0][0], :status => 'rejected'}},
                           method: :patch
     end
   end
