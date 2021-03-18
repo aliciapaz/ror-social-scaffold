@@ -5,7 +5,7 @@ RSpec.describe Friendship, type: :model do
     @requester = create(:user1)
     @requestee = create(:user2)
     @lonely_user = create(:user3)
-    @friendship = create(:friendship)
+    @friendship = Friendship.create(requestee_id: @requestee[:id], requester_id: @requester[:id])
   end
   it 'finds a friendship between two users, no matter the direction' do
     expect(Friendship.bidirectional_friendship(@requester, @requestee)).to eq(1)

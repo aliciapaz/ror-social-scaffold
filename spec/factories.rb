@@ -18,9 +18,4 @@ FactoryBot.define do
     password {"password"}
   end
 
-  factory :friendship, class: "Friendship" do
-    requester_id {'1'}
-    requestee_id {'2'}
-  end
-
 end
