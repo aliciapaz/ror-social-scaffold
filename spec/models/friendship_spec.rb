@@ -7,6 +7,15 @@ RSpec.describe Friendship, type: :model do
     @lonely_user = create(:user3)
     @friendship = Friendship.create(requestee_id: @requestee[:id], requester_id: @requester[:id])
   end
+
+  it 'is valid if unique' do
+    expect(Friendship.create(requester_id: @requester[:id], requestee_id: @lonely_user[:id])).to be_valid
+  end
+
+  it 'is not valid if not unique' do
+    expect(Friendship.create(requestee_id: @requester[:id], requester_id: @requestee[:id])).to_not be_valid
+  end
+
   it 'finds a friendship between two users, no matter the direction' do
     expect(Friendship.bidirectional_friendship(@requester, @requestee)).to eq(1)
   end
