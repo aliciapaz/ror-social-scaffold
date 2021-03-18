@@ -20,7 +20,10 @@ class PostsController < ApplicationController
   private
 
   def timeline_posts
-    @timeline_posts ||= Post.all.ordered_by_most_recent.includes(:user)
+    @requestee_friends = Friendship.where(requester_id: current_user, status: 'accepted').pluck(:requestee_id)
+    @requester_friends = Friendship.where(requestee_id: current_user, status: 'accepted').pluck(:requester_id)
+    @me_and_friends = @requestee_friends + @requester_friends + [current_user[:id]]
+    @timeline_posts ||= Post.where(user_id: @me_and_friends).ordered_by_most_recent.includes(:user)
   end
 
   def post_params
