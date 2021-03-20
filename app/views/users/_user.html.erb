@@ -1,6 +1,10 @@
 <li>
-  Name: <%= user.name %>
-  <span class="profile-link">
-    <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-  </span>
+  <div class= "flex user-links">
+    <div class = "user-name"><%= user.name %></div>
+    <span class="profile-link">
+      <%= link_to "See Profile",  user_path(user), class: 'profile-link' %>
+    </span>
+    <%= friendship_button(user) %>
+    <%= update_friendship_button(user) %>
+  </div>
 </li>

@@ -136,6 +136,10 @@ a {
   }
 }
 
+.flex {
+  display: flex;
+}
+
 form {
   width: 80%;
   margin: 8px 0;
@@ -157,7 +161,7 @@ form {
     }
 
     input[type="checkbox"] {
-      width: fit-content;
+      width: 2rem;
     }
   }
 
@@ -289,6 +293,7 @@ form {
     font-size: 0.8em;
     margin: 0 0 8px 0;
     color: $primary-color-dark;
+    padding-right: 1rem;
   }
 }
 
@@ -309,6 +314,10 @@ form {
 
     justify-content: start;
   }
+}
+
+.user-links {
+  align-items: center;
 }
 
 #error_explanation {
