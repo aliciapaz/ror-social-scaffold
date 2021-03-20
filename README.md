@@ -1,5 +1,7 @@
 # Scaffold for social media app with Ruby on Rails
 
+> A social media application where users can create posts, make friends and engage with other friends' posts by liking their posts.
+
 > This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
 
 ## Built With
@@ -9,7 +11,7 @@
 
 ## Live Demo
 
-TBA
+[Deployed app](https://serene-lake-71006.herokuapp.com/)
 
 
 ## Getting Started
@@ -37,15 +39,6 @@ Setup database with:
    rails db:migrate
 ```
 
-### Github Actions
-
-To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
-
-1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
-2. Create the `feature/branch` and push.
-3. Start working on your milestone as usual.
-4. Open a PR from the `feature/branch` when your work is done.
-
 
 ### Usage
 
@@ -57,21 +50,35 @@ Start server with:
 
 Open `http://localhost:3000/` in your browser.
 
+- Sign up to create a user, posts, invite other users to be friends and accept or reject friendship requests.
+
+
 ### Run tests
 
 ```
     rpsec --format documentation
 ```
 
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
 
 ### Deployment
 
-TBA
+- Deployed in Heroku
 
 ## Authors
 
-TBA
+
+👤 **George Gbenle**
+
+- GitHub: [george-shammar](https://github.com/george-shammar)
+- Twitter: [@GeorgeShammar](https://twitter.com/GeorgeShammar)
+- LinkedIn: [George Gbenle](https://www.linkedin.com/in/georgegbenle/)
+
+👤 **Alicia Rojas**
+
+- GitHub: [@aliciapaz](https://github.com/aliciapaz)
+- Twitter: [@_alicia_paz](https://twitter.com/_alicia_paz)
+- LinkedIn: [Alicia Rojas](https://www.linkedin.com/in/aliciapazrojas/)
+
 
 ## 🤝 Contributing
 
@@ -85,9 +92,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-TBA
+Microverse for creating the scaffold upon which features are built.
 
 ## 📝 License
 
-TBA
-
+This project is [MIT](LICENSE) licensed.
