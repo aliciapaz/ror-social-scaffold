@@ -5,8 +5,10 @@ class FriendshipsController < ApplicationController
 
     if @friendship.save
       redirect_to users_path
+      flash.notice = 'Friendship request sucesffully sent'
     else
       redirect_to posts_path
+      flash.alert = 'Friendship request unsuccessful'
     end
   end
 
@@ -17,8 +19,10 @@ class FriendshipsController < ApplicationController
 
     if @friendship.update(friendship_update_params)
       redirect_to users_path
+      flash.notice = 'Friendship successfully updated'
     else
       redirect_to posts_path
+      flash.alert = 'Friendship update unsuccessful'
     end
   end
 
